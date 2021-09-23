@@ -2,6 +2,7 @@ package com.example.kalkulator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,11 +10,19 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Operator operator = Operator.NONE;
+
     double br1 = 0;
     double br2 = 0;
-    boolean zbrajanje,oduzimanje,dijeljenje,mnozenje;
-    boolean dec,ostatak;
+    boolean zbrajanje, oduzimanje, dijeljenje, mnozenje, modul;
+    boolean dec;
+
+    double chooseNumber;
+    double chooseSecond;
+    double result;
+
     TextView rezultat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         rezultat = (TextView) findViewById(R.id.rezultat);
+        rezultat.setText("0");
 
         Button ac = (Button) findViewById(R.id.ac);
         Button brisi = (Button) findViewById(R.id.brisi);
@@ -43,11 +53,18 @@ public class MainActivity extends AppCompatActivity {
         Button jednako = (Button) findViewById(R.id.jednako);
 
 
-
         jedan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "1");
+                zbroji.setBackgroundColor(Color.parseColor("#ff8c00"));
+                zbroji.setTextColor(Color.WHITE);
+                if (operator!=Operator.NONE) {
+                    chooseSecond=1;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=1;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
@@ -117,25 +134,26 @@ public class MainActivity extends AppCompatActivity {
         zbroji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rezultat.getText().length()!=0){
-                    br1 = Float.parseFloat(rezultat.getText() + "");
-                    zbrajanje=true;
-                    dec = false;
-                    rezultat.setText(null);
-
+                zbroji.setBackgroundColor(Color.WHITE);
+                zbroji.setTextColor(Color.parseColor("#ff8c00"));
+                if(operator==Operator.NONE){
+                    operator=Operator.ZBROJI;
+                }else{
+                    double res = calculate(chooseNumber,chooseSecond,operator);
+                    chooseNumber=res;
+                    rezultat.setText(String.valueOf(res));
                 }
-
             }
         });
 
         oduzmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rezultat.getText().length()!=0){
+                if (rezultat.getText().length() != 0) {
                     br1 = Float.parseFloat(rezultat.getText() + "");
-                    oduzimanje=true;
+                    oduzimanje = true;
                     dec = false;
-                    rezultat.setText(null);
+                    rezultat.setText("");
 
                 }
 
@@ -145,9 +163,9 @@ public class MainActivity extends AppCompatActivity {
         pomnozi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rezultat.getText().length()!=0){
+                if (rezultat.getText().length() != 0) {
                     br1 = Float.parseFloat(rezultat.getText() + "");
-                    mnozenje=true;
+                    mnozenje = true;
                     dec = false;
                     rezultat.setText(null);
 
@@ -159,9 +177,9 @@ public class MainActivity extends AppCompatActivity {
         podijeli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rezultat.getText().length()!=0){
+                if (rezultat.getText().length() != 0) {
                     br1 = Float.parseFloat(rezultat.getText() + "");
-                    dijeljenje=true;
+                    dijeljenje = true;
                     dec = false;
                     rezultat.setText(null);
 
@@ -175,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (rezultat.getText().length() != 0) {
                     br1 = Float.parseFloat(rezultat.getText() + "");
-                    ostatak = true;
+                    modul = true;
                     dec = false;
                     rezultat.setText(null);
                 }
@@ -183,35 +201,55 @@ public class MainActivity extends AppCompatActivity {
         });
 
         jednako.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
-                if(zbrajanje || oduzimanje || mnozenje || dijeljenje || ostatak){
-                    br2 = Float.parseFloat(rezultat.getText() + "");
-                }
-                if (zbrajanje){
-                    rezultat.setText(br1 + br2 + "");
-                    zbrajanje = false;
-                }
-
-                if (oduzimanje){
-                    rezultat.setText(br1 - br2 + "");
-                    oduzimanje = false;
-                }
-
-                if (mnozenje){
-                    rezultat.setText(br1 * br2 + "");
-                    mnozenje = false;
-                }
-
-                if (dijeljenje){
-                    rezultat.setText(br1 / br2 + "");
-                    dijeljenje = false;
-                }
-                if(ostatak){
-                    rezultat.setText(br1 % br2 +"");
-                    ostatak=false;
-                }
+                jednako.setBackgroundColor(Color.WHITE);
+                jednako.setTextColor(Color.parseColor("#ff8c00"));
+                double res = calculate(chooseNumber,chooseSecond,operator);
+                chooseNumber=res;
+                rezultat.setText(String.valueOf(res));
+                operator=Operator.NONE;
+                jednako.setBackgroundColor(Color.parseColor("#ff8c00"));
+                jednako.setTextColor(Color.WHITE);
             }
+
+
+
+
+
+
+
+
+
+//                if (zbrajanje || oduzimanje || mnozenje || dijeljenje || modul) {
+//                    br2 = Float.parseFloat(rezultat.getText() + "");
+//                }
+//                if (zbrajanje) {
+//                    rezultat.setText(br1 + br2 + "");
+//                    zbrajanje = false;
+//                }
+//
+//                if (oduzimanje) {
+//                    rezultat.setText(br1 - br2 + "");
+//                    oduzimanje = false;
+//                }
+//
+//                if (mnozenje) {
+//                    rezultat.setText(br1 * br2 + "");
+//                    mnozenje = false;
+//                }
+//
+//                if (dijeljenje) {
+//                    rezultat.setText(br1 / br2 + "");
+//                    dijeljenje = false;
+//                }
+//                if (modul) {
+//                    rezultat.setText(br1 % br2 + "");
+//                    modul = false;
+//                }
+//            }
         });
 
         ac.setOnClickListener(new View.OnClickListener() {
@@ -236,9 +274,36 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
+        })
+        ;
+    }
 
+    private double calculate(double x, double y, Operator op) {
+        double res = 0;
+        if (op == Operator.ZBROJI) {
+            res = x + y;
+        }
+        if (oduzimanje) {
+            res = x - y;
+            oduzimanje = false;
+        }
 
+        if (mnozenje) {
+            res = x * y;
+            mnozenje = false;
+        }
 
-    })
-    ;}
+        if (dijeljenje) {
+            res = x / y;
+            dijeljenje = false;
+        }
+        if (modul) {
+            res = x % y;
+            modul = false;
+        }
+        return res;
+    }
+
 }
+
+
