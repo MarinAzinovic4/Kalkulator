@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     boja();
+                    prvi();
                     dec = false;
                         if (operator!=Operator.NONE) {
                         chooseSecond=1;
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                drugi();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=2;
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                treci();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=3;
@@ -109,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                cetvrti();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=4;
@@ -124,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                peti();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=5;
@@ -139,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                sesti();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=6;
@@ -154,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                sedmi();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=7;
@@ -169,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                osmi();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=8;
@@ -184,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                deveti();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=9;
@@ -199,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boja();
+                nulti();
                 dec = false;
                 if (operator!=Operator.NONE) {
                     chooseSecond=0;
@@ -328,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boja();
-                rezultat.setText("");
+                rezultat.setText("0");
                 chooseNumber = 0;
                 chooseSecond = 0;
             }
@@ -338,6 +348,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 boja();
+                del();
                 t = (String) rezultat.getText();
 
                 if (t.isEmpty()){
@@ -351,6 +362,7 @@ public class MainActivity extends AppCompatActivity {
         tocka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                toc();
                 if (dec) {
 
                 } else {
@@ -385,6 +397,163 @@ public class MainActivity extends AppCompatActivity {
         podijeli.setTextColor(Color.WHITE);
 
 
+    }
+
+
+    public void prvi(){
+        Button jedan = (Button) findViewById(R.id.jedan);
+        jedan.setBackgroundColor(Color.WHITE);
+        jedan.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                jedan.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                jedan.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void drugi(){
+        Button dva = (Button) findViewById(R.id.dva);
+        dva.setBackgroundColor(Color.WHITE);
+        dva.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dva.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                dva.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void treci(){
+        Button tri = (Button) findViewById(R.id.tri);
+        tri.setBackgroundColor(Color.WHITE);
+        tri.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tri.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                tri.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void cetvrti(){
+        Button cetiri = (Button) findViewById(R.id.cetiri);
+        cetiri.setBackgroundColor(Color.WHITE);
+        cetiri.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                cetiri.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                cetiri.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void peti(){
+        Button pet = (Button) findViewById(R.id.pet);
+        pet.setBackgroundColor(Color.WHITE);
+        pet.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pet.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                pet.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void sesti(){
+        Button sest = (Button) findViewById(R.id.sest);
+        sest.setBackgroundColor(Color.WHITE);
+        sest.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                sest.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                sest.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void sedmi(){
+        Button sedam = (Button) findViewById(R.id.sedam);
+        sedam.setBackgroundColor(Color.WHITE);
+        sedam.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                sedam.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                sedam.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void osmi(){
+        Button osam = (Button) findViewById(R.id.osam);
+        osam.setBackgroundColor(Color.WHITE);
+        osam.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                osam.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                osam.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void deveti(){
+        Button devet = (Button) findViewById(R.id.devet);
+        devet.setBackgroundColor(Color.WHITE);
+        devet.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                devet.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                devet.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void nulti(){
+        Button nula = (Button) findViewById(R.id.nula);
+        nula.setBackgroundColor(Color.WHITE);
+        nula.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                nula.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                nula.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void del(){
+        Button brisi = (Button) findViewById(R.id.brisi);
+        brisi.setBackgroundColor(Color.WHITE);
+        brisi.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                brisi.setBackgroundColor(Color.parseColor("#808080"));
+                brisi.setTextColor(Color.BLACK);
+            }
+        }, 300);
+    }
+
+    public void toc(){
+        Button tocka = (Button) findViewById(R.id.tocka);
+        tocka.setBackgroundColor(Color.WHITE);
+        tocka.setTextColor(Color.parseColor("#ff8c00"));
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                tocka.setBackgroundColor(Color.parseColor("#D3D3D3"));
+                tocka.setTextColor(Color.BLACK);
+            }
+        }, 300);
     }
 
 
