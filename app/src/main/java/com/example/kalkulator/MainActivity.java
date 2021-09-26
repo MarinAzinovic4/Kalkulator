@@ -7,21 +7,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.os.Handler;
+
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
     Operator operator = Operator.NONE;
-
+    final Handler handler = new Handler();
     double br1 = 0;
     double br2 = 0;
     boolean zbrajanje, oduzimanje, dijeljenje, mnozenje, modul;
     boolean dec;
-
+    String t;
     double chooseNumber;
     double chooseSecond;
     double result;
 
     TextView rezultat;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,87 +57,163 @@ public class MainActivity extends AppCompatActivity {
         Button jednako = (Button) findViewById(R.id.jednako);
 
 
+
         jedan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                zbroji.setBackgroundColor(Color.parseColor("#ff8c00"));
-                zbroji.setTextColor(Color.WHITE);
-                if (operator!=Operator.NONE) {
-                    chooseSecond=1;
-                    rezultat.setText(String.valueOf(chooseSecond));
-                }else {
-                    chooseNumber=1;
-                    rezultat.setText(String.valueOf(chooseNumber));
-                }
+                    boja();
+                    dec = false;
+                        if (operator!=Operator.NONE) {
+                        chooseSecond=1;
+                            rezultat.setText(String.valueOf(chooseSecond));
+
+                        }else {
+                        chooseNumber=1;
+                            rezultat.setText(String.valueOf(chooseNumber));
+
+                        }
             }
         });
 
         dva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "2");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=2;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=2;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         tri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "3");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=3;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=3;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         cetiri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "4");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=4;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=4;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         pet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "5");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=5;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=5;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         sest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "6");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=6;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=6;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         sedam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "7");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=7;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=7;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         osam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "8");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=8;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=8;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         devet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "9");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=9;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=9;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         nula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                rezultat.setText(rezultat.getText() + "0");
+                boja();
+                dec = false;
+                if (operator!=Operator.NONE) {
+                    chooseSecond=0;
+                    rezultat.setText(String.valueOf(chooseSecond));
+                }else {
+                    chooseNumber=0;
+                    rezultat.setText(String.valueOf(chooseNumber));
+                }
             }
         });
 
         zbroji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                boja();
                 zbroji.setBackgroundColor(Color.WHITE);
                 zbroji.setTextColor(Color.parseColor("#ff8c00"));
                 if(operator==Operator.NONE){
@@ -142,6 +222,8 @@ public class MainActivity extends AppCompatActivity {
                     double res = calculate(chooseNumber,chooseSecond,operator);
                     chooseNumber=res;
                     rezultat.setText(String.valueOf(res));
+                    operator=Operator.ZBROJI;
+
                 }
             }
         });
@@ -149,12 +231,16 @@ public class MainActivity extends AppCompatActivity {
         oduzmi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (rezultat.getText().length() != 0) {
-                    br1 = Float.parseFloat(rezultat.getText() + "");
-                    oduzimanje = true;
-                    dec = false;
-                    rezultat.setText("");
-
+                boja();
+                oduzmi.setBackgroundColor(Color.WHITE);
+                oduzmi.setTextColor(Color.parseColor("#ff8c00"));
+                if(operator==Operator.NONE){
+                    operator=Operator.ODUZMI;
+                }else{
+                    double res = calculate(chooseNumber,chooseSecond,operator);
+                    chooseNumber=res;
+                    rezultat.setText(String.valueOf(res));
+                    operator=Operator.ODUZMI;
                 }
 
             }
@@ -163,12 +249,16 @@ public class MainActivity extends AppCompatActivity {
         pomnozi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (rezultat.getText().length() != 0) {
-                    br1 = Float.parseFloat(rezultat.getText() + "");
-                    mnozenje = true;
-                    dec = false;
-                    rezultat.setText(null);
-
+                boja();
+                pomnozi.setBackgroundColor(Color.WHITE);
+                pomnozi.setTextColor(Color.parseColor("#ff8c00"));
+                if(operator==Operator.NONE){
+                    operator=Operator.MNOZI;
+                }else{
+                    double res = calculate(chooseNumber,chooseSecond,operator);
+                    chooseNumber=res;
+                    rezultat.setText(String.valueOf(res));
+                    operator=Operator.MNOZI;
                 }
 
             }
@@ -177,12 +267,16 @@ public class MainActivity extends AppCompatActivity {
         podijeli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (rezultat.getText().length() != 0) {
-                    br1 = Float.parseFloat(rezultat.getText() + "");
-                    dijeljenje = true;
-                    dec = false;
-                    rezultat.setText(null);
-
+                boja();
+                podijeli.setBackgroundColor(Color.WHITE);
+                podijeli.setTextColor(Color.parseColor("#ff8c00"));
+                if(operator==Operator.NONE){
+                    operator=Operator.DIJELI;
+                }else{
+                    double res = calculate(chooseNumber,chooseSecond,operator);
+                    chooseNumber=res;
+                    rezultat.setText(String.valueOf(res));
+                    operator=Operator.DIJELI;
                 }
 
             }
@@ -191,11 +285,16 @@ public class MainActivity extends AppCompatActivity {
         posto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rezultat.getText().length() != 0) {
-                    br1 = Float.parseFloat(rezultat.getText() + "");
-                    modul = true;
-                    dec = false;
-                    rezultat.setText(null);
+                boja();
+                posto.setBackgroundColor(Color.WHITE);
+                posto.setTextColor(Color.parseColor("#ff8c00"));
+                if(operator==Operator.NONE){
+                    operator=Operator.MODUL;
+                }else{
+                    double res = calculate(chooseNumber,chooseSecond,operator);
+                    chooseNumber=res;
+                    rezultat.setText(String.valueOf(res));
+                    operator=Operator.MODUL;
                 }
             }
         });
@@ -211,53 +310,41 @@ public class MainActivity extends AppCompatActivity {
                 chooseNumber=res;
                 rezultat.setText(String.valueOf(res));
                 operator=Operator.NONE;
-                jednako.setBackgroundColor(Color.parseColor("#ff8c00"));
-                jednako.setTextColor(Color.WHITE);
+
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        jednako.setBackgroundColor(Color.parseColor("#ff8c00"));
+                        jednako.setTextColor(Color.WHITE);
+                    }
+                }, 300);
+
+
             }
 
-
-
-
-
-
-
-
-
-//                if (zbrajanje || oduzimanje || mnozenje || dijeljenje || modul) {
-//                    br2 = Float.parseFloat(rezultat.getText() + "");
-//                }
-//                if (zbrajanje) {
-//                    rezultat.setText(br1 + br2 + "");
-//                    zbrajanje = false;
-//                }
-//
-//                if (oduzimanje) {
-//                    rezultat.setText(br1 - br2 + "");
-//                    oduzimanje = false;
-//                }
-//
-//                if (mnozenje) {
-//                    rezultat.setText(br1 * br2 + "");
-//                    mnozenje = false;
-//                }
-//
-//                if (dijeljenje) {
-//                    rezultat.setText(br1 / br2 + "");
-//                    dijeljenje = false;
-//                }
-//                if (modul) {
-//                    rezultat.setText(br1 % br2 + "");
-//                    modul = false;
-//                }
-//            }
         });
 
         ac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boja();
                 rezultat.setText("");
-                br1 = 0.0;
-                br2 = 0.0;
+                chooseNumber = 0;
+                chooseSecond = 0;
+            }
+        });
+
+        brisi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boja();
+                t = (String) rezultat.getText();
+
+                if (t.isEmpty()){
+                    rezultat.setText("0");
+                } else {
+                    rezultat.setText(t.substring(0, t.length() - 1));
+                }
             }
         });
 
@@ -274,32 +361,57 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        })
-        ;
+        });
+
     }
+
+    public void boja(){
+        Button posto = (Button) findViewById(R.id.posto);
+        Button podijeli = (Button) findViewById(R.id.podijeli);
+        Button pomnozi = (Button) findViewById(R.id.pomnozi);
+        Button oduzmi = (Button) findViewById(R.id.oduzmi);
+        Button zbroji = (Button) findViewById(R.id.zbroji);
+
+
+        zbroji.setBackgroundColor(Color.parseColor("#ff8c00"));
+        zbroji.setTextColor(Color.WHITE);
+        oduzmi.setBackgroundColor(Color.parseColor("#ff8c00"));
+        oduzmi.setTextColor(Color.WHITE);
+        posto.setBackgroundColor(Color.parseColor("#808080"));
+        posto.setTextColor(Color.BLACK);
+        pomnozi.setBackgroundColor(Color.parseColor("#ff8c00"));
+        pomnozi.setTextColor(Color.WHITE);
+        podijeli.setBackgroundColor(Color.parseColor("#ff8c00"));
+        podijeli.setTextColor(Color.WHITE);
+
+
+    }
+
+
+
+
+
+
+
 
     private double calculate(double x, double y, Operator op) {
         double res = 0;
         if (op == Operator.ZBROJI) {
             res = x + y;
         }
-        if (oduzimanje) {
+        if (op == Operator.ODUZMI) {
             res = x - y;
-            oduzimanje = false;
         }
 
-        if (mnozenje) {
+        if (op == Operator.MNOZI) {
             res = x * y;
-            mnozenje = false;
         }
 
-        if (dijeljenje) {
+        if (op == Operator.DIJELI) {
             res = x / y;
-            dijeljenje = false;
         }
-        if (modul) {
+        if (op == Operator.MODUL) {
             res = x % y;
-            modul = false;
         }
         return res;
     }
