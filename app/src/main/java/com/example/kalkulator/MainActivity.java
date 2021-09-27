@@ -18,10 +18,11 @@ public class MainActivity extends AppCompatActivity {
     double br1 = 0;
     double br2 = 0;
     boolean zbrajanje, oduzimanje, dijeljenje, mnozenje, modul;
-    boolean dec;
+    boolean dec=false;
+    boolean jednakob=false;
     String t;
-    double chooseNumber;
-    double chooseSecond;
+    String chooseNumber ="";
+    String chooseSecond ="";
     double result;
 
     TextView rezultat;
@@ -63,15 +64,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                     boja();
                     prvi();
-                    dec = false;
                         if (operator!=Operator.NONE) {
-                        chooseSecond=1;
+                        chooseSecond=chooseSecond + "1";
                             rezultat.setText(String.valueOf(chooseSecond));
 
                         }else {
-                        chooseNumber=1;
+                            if(jednakob){
+                                jednakob=false;
+                                chooseNumber="";
+                            }
+                            chooseNumber=chooseNumber + "1";
                             rezultat.setText(String.valueOf(chooseNumber));
-
                         }
             }
         });
@@ -81,12 +84,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 drugi();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=2;
+                    chooseSecond=chooseSecond+"2";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=2;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"2";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -97,12 +103,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 treci();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=3;
+                    chooseSecond=chooseSecond+"3";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=3;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"3";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -113,12 +122,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 cetvrti();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=4;
+                    chooseSecond=chooseSecond+"4";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=4;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"4";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -129,12 +141,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 peti();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=5;
+                    chooseSecond=chooseSecond+"5";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=5;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"5";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -145,12 +160,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 sesti();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=6;
+                    chooseSecond=chooseSecond+"6";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=6;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"6";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -161,12 +179,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 sedmi();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=7;
+                    chooseSecond=chooseSecond+"7";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=7;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"7";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -177,12 +198,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 osmi();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=8;
+                    chooseSecond=chooseSecond+"8";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=8;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"8";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -193,12 +217,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 deveti();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=9;
+                    chooseSecond=chooseSecond+"9";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=9;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"9";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -209,12 +236,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 boja();
                 nulti();
-                dec = false;
                 if (operator!=Operator.NONE) {
-                    chooseSecond=0;
+                    chooseSecond=chooseSecond+"0";
                     rezultat.setText(String.valueOf(chooseSecond));
                 }else {
-                    chooseNumber=0;
+                    if(jednakob){
+                        jednakob=false;
+                        chooseNumber="";
+                    }
+                    chooseNumber=chooseNumber+"0";
                     rezultat.setText(String.valueOf(chooseNumber));
                 }
             }
@@ -226,12 +256,17 @@ public class MainActivity extends AppCompatActivity {
                 boja();
                 zbroji.setBackgroundColor(Color.WHITE);
                 zbroji.setTextColor(Color.parseColor("#ff8c00"));
-                if(operator==Operator.NONE){
-                    operator=Operator.ZBROJI;
+                if(operator!=Operator.NONE){
+                    if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()){
+                        double res = calculate(Double.parseDouble(chooseNumber),Double.parseDouble(chooseSecond),operator);
+                        chooseNumber=String.valueOf(res);
+                        chooseSecond="";
+                        rezultat.setText(String.valueOf(res));
+                        operator=Operator.ZBROJI;
+
+                    }
                 }else{
-                    double res = calculate(chooseNumber,chooseSecond,operator);
-                    chooseNumber=res;
-                    rezultat.setText(String.valueOf(res));
+
                     operator=Operator.ZBROJI;
 
                 }
@@ -244,12 +279,16 @@ public class MainActivity extends AppCompatActivity {
                 boja();
                 oduzmi.setBackgroundColor(Color.WHITE);
                 oduzmi.setTextColor(Color.parseColor("#ff8c00"));
-                if(operator==Operator.NONE){
-                    operator=Operator.ODUZMI;
+                if(operator!=Operator.NONE){
+                    if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
+                        double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
+                        chooseNumber = String.valueOf(res);
+                        chooseSecond = "";
+                        rezultat.setText(String.valueOf(res));
+                        operator = Operator.ODUZMI;
+                    }
                 }else{
-                    double res = calculate(chooseNumber,chooseSecond,operator);
-                    chooseNumber=res;
-                    rezultat.setText(String.valueOf(res));
+
                     operator=Operator.ODUZMI;
                 }
 
@@ -262,12 +301,15 @@ public class MainActivity extends AppCompatActivity {
                 boja();
                 pomnozi.setBackgroundColor(Color.WHITE);
                 pomnozi.setTextColor(Color.parseColor("#ff8c00"));
-                if(operator==Operator.NONE){
-                    operator=Operator.MNOZI;
+                if(operator!=Operator.NONE){
+                    if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
+                        double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
+                        chooseNumber = String.valueOf(res);
+                        chooseSecond = "";
+                        rezultat.setText(String.valueOf(res));
+                        operator = Operator.MNOZI;
+                    }
                 }else{
-                    double res = calculate(chooseNumber,chooseSecond,operator);
-                    chooseNumber=res;
-                    rezultat.setText(String.valueOf(res));
                     operator=Operator.MNOZI;
                 }
 
@@ -280,12 +322,16 @@ public class MainActivity extends AppCompatActivity {
                 boja();
                 podijeli.setBackgroundColor(Color.WHITE);
                 podijeli.setTextColor(Color.parseColor("#ff8c00"));
-                if(operator==Operator.NONE){
-                    operator=Operator.DIJELI;
+                if(operator!=Operator.NONE){
+                    if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
+                        double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
+                        chooseNumber = String.valueOf(res);
+                        chooseSecond = "";
+                        rezultat.setText(String.valueOf(res));
+                        operator = Operator.DIJELI;
+                    }
                 }else{
-                    double res = calculate(chooseNumber,chooseSecond,operator);
-                    chooseNumber=res;
-                    rezultat.setText(String.valueOf(res));
+
                     operator=Operator.DIJELI;
                 }
 
@@ -298,12 +344,16 @@ public class MainActivity extends AppCompatActivity {
                 boja();
                 posto.setBackgroundColor(Color.WHITE);
                 posto.setTextColor(Color.parseColor("#ff8c00"));
-                if(operator==Operator.NONE){
-                    operator=Operator.MODUL;
+                if(operator!=Operator.NONE){
+                    if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
+                        double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
+                        chooseNumber = String.valueOf(res);
+                        chooseSecond = "";
+                        rezultat.setText(String.valueOf(res));
+                        operator = Operator.MODUL;
+                    }
                 }else{
-                    double res = calculate(chooseNumber,chooseSecond,operator);
-                    chooseNumber=res;
-                    rezultat.setText(String.valueOf(res));
+
                     operator=Operator.MODUL;
                 }
             }
@@ -316,10 +366,21 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 jednako.setBackgroundColor(Color.WHITE);
                 jednako.setTextColor(Color.parseColor("#ff8c00"));
-                double res = calculate(chooseNumber,chooseSecond,operator);
-                chooseNumber=res;
-                rezultat.setText(String.valueOf(res));
+                jednakob=true;
+                if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
+                    double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
+                    chooseNumber = String.valueOf(res);
+                    chooseSecond = "";
+                    if (res % 1 == 0) {
+                        rezultat.setText(String.valueOf((int) res));
+                    } else {
+                        rezultat.setText(String.valueOf(res));
+                    }
+                }
+
+
                 operator=Operator.NONE;
+
 
                 handler.postDelayed(new Runnable() {
                     @Override
@@ -339,8 +400,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boja();
                 rezultat.setText("0");
-                chooseNumber = 0;
-                chooseSecond = 0;
+                chooseNumber = "";
+                chooseSecond = "";
             }
         });
 
@@ -363,16 +424,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toc();
-                if (dec) {
+                if (!dec) {
 
-                } else {
                     rezultat.setText(rezultat.getText() + ".");
                     dec = true;
                 }
-
             }
-
-
         });
 
     }
