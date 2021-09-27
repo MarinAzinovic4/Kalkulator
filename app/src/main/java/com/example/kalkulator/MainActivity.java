@@ -402,6 +402,7 @@ public class MainActivity extends AppCompatActivity {
                 rezultat.setText("0");
                 chooseNumber = "";
                 chooseSecond = "";
+                operator  = Operator.NONE;
             }
         });
 
