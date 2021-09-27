@@ -261,7 +261,11 @@ public class MainActivity extends AppCompatActivity {
                         double res = calculate(Double.parseDouble(chooseNumber),Double.parseDouble(chooseSecond),operator);
                         chooseNumber=String.valueOf(res);
                         chooseSecond="";
-                        rezultat.setText(String.valueOf(res));
+                        if (res % 1 == 0) {
+                            rezultat.setText(String.valueOf((int) res));
+                        } else {
+                            rezultat.setText(String.valueOf(res));
+                        }
                         operator=Operator.ZBROJI;
 
                     }
@@ -284,7 +288,11 @@ public class MainActivity extends AppCompatActivity {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
                         chooseNumber = String.valueOf(res);
                         chooseSecond = "";
-                        rezultat.setText(String.valueOf(res));
+                        if (res % 1 == 0) {
+                            rezultat.setText(String.valueOf((int) res));
+                        } else {
+                            rezultat.setText(String.valueOf(res));
+                        }
                         operator = Operator.ODUZMI;
                     }
                 }else{
@@ -306,7 +314,11 @@ public class MainActivity extends AppCompatActivity {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
                         chooseNumber = String.valueOf(res);
                         chooseSecond = "";
-                        rezultat.setText(String.valueOf(res));
+                        if (res % 1 == 0) {
+                            rezultat.setText(String.valueOf((int) res));
+                        } else {
+                            rezultat.setText(String.valueOf(res));
+                        }
                         operator = Operator.MNOZI;
                     }
                 }else{
@@ -327,7 +339,12 @@ public class MainActivity extends AppCompatActivity {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
                         chooseNumber = String.valueOf(res);
                         chooseSecond = "";
-                        rezultat.setText(String.valueOf(res));
+                        if (res % 1 == 0) {
+                            rezultat.setText(String.valueOf((int) res));
+                        } else {
+                            rezultat.setText(String.valueOf(res));
+                        }
+
                         operator = Operator.DIJELI;
                     }
                 }else{
@@ -349,7 +366,12 @@ public class MainActivity extends AppCompatActivity {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
                         chooseNumber = String.valueOf(res);
                         chooseSecond = "";
-                        rezultat.setText(String.valueOf(res));
+                        if (res % 1 == 0) {
+                            rezultat.setText(String.valueOf((int) res));
+                        } else {
+                            rezultat.setText(String.valueOf(res));
+                        }
+
                         operator = Operator.MODUL;
                     }
                 }else{
