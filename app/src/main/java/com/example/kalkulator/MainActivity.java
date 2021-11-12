@@ -258,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
                 zbroji.setBackgroundColor(Color.WHITE);
                 zbroji.setTextColor(Color.parseColor("#ff8c00"));
                 operator=Operator.ZBROJI;
+                dec = false;
                 if(operator!=Operator.NONE){
                     if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()){
                         double res = calculate(Double.parseDouble(chooseNumber),Double.parseDouble(chooseSecond),operator);
@@ -289,6 +290,7 @@ public class MainActivity extends AppCompatActivity {
                 oduzmi.setBackgroundColor(Color.WHITE);
                 oduzmi.setTextColor(Color.parseColor("#ff8c00"));
                 operator = Operator.ODUZMI;
+                dec = false;
                 if(operator!=Operator.NONE){
                     if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
@@ -321,6 +323,7 @@ public class MainActivity extends AppCompatActivity {
                 pomnozi.setBackgroundColor(Color.WHITE);
                 pomnozi.setTextColor(Color.parseColor("#ff8c00"));
                 operator = Operator.MNOZI;
+                dec = false;
                 if(operator!=Operator.NONE){
                     if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
@@ -352,6 +355,7 @@ public class MainActivity extends AppCompatActivity {
                 podijeli.setBackgroundColor(Color.WHITE);
                 podijeli.setTextColor(Color.parseColor("#ff8c00"));
                 operator = Operator.DIJELI;
+                dec = false;
                 if(operator!=Operator.NONE){
                     if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
@@ -383,6 +387,7 @@ public class MainActivity extends AppCompatActivity {
                 posto.setBackgroundColor(Color.WHITE);
                 posto.setTextColor(Color.parseColor("#ff8c00"));
                 operator = Operator.MODUL;
+                dec = false;
                 if(operator!=Operator.NONE){
                     if(!chooseNumber.isEmpty()&&!chooseSecond.isEmpty()) {
                         double res = calculate(Double.parseDouble(chooseNumber), Double.parseDouble(chooseSecond), operator);
@@ -465,7 +470,10 @@ public class MainActivity extends AppCompatActivity {
                 if (t.isEmpty() || (t2.isEmpty() && t1.isEmpty())){
                     rezultat.setText("0");
                 } else {
-                    rezultat.setText(t.substring(0, t.length() - 1));
+                    String rez = String.valueOf(rezultat);
+                    rez = t.substring(0, t.length() - 1);
+                    rezultat.setText(String.valueOf(rez));
+
                     if (operator!=Operator.NONE) {
                         chooseSecond = t2.substring(0, t2.length() - 1);
                         rezultat.setText(String.valueOf(chooseSecond));
@@ -490,6 +498,7 @@ public class MainActivity extends AppCompatActivity {
                     if (operator!=Operator.NONE) {
                         chooseSecond=chooseSecond + ".";
                         rezultat.setText(String.valueOf(chooseSecond));
+                        dec = true;
 
                     }else {
                         if(jednakob){
@@ -498,8 +507,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                         chooseNumber=chooseNumber + ".";
                         rezultat.setText(String.valueOf(chooseNumber));
+                        dec = true;
                     }
-                    dec = true;
+
                 }else{
 
 
